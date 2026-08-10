@@ -1,0 +1,43 @@
+import type { Metadata } from "next";
+import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import "./globals.css";
+import { AuthProvider } from "../lib/auth-context";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["500", "600", "700"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-plex-mono",
+  weight: ["400", "500", "600"],
+});
+
+export const metadata: Metadata = {
+  title: "Pulse — know the second it goes down",
+  description: "Simple uptime monitoring. Add a site, get a heartbeat.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${spaceGrotesk.variable} ${inter.variable} ${plexMono.variable}`}
+      >
+        <AuthProvider>{children}</AuthProvider>
+      </body>
+    </html>
+  );
+}

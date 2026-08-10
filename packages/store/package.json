@@ -1,0 +1,21 @@
+{
+  "name": "store",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "seed": "bun run seed.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "exports": {
+    "./client": "./index.ts"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "6.8.2",
+    "prisma": "^6.8.2"
+  }
+}
