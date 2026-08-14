@@ -10,6 +10,13 @@ http.createServer((req, res) => {
     console.log(`Health check server listening on port ${process.env.PORT || 3002}`);
 });
 
+const SELF_URL = process.env.RENDER_EXTERNAL_URL;
+if (SELF_URL) {
+    setInterval(() => {
+        fetch(SELF_URL).catch(() => {});
+    }, 10 * 60 * 1000);
+}
+
 const REGION_ID = process.env.REGION_ID!;
 const WORKER_ID = process.env.WORKER_ID!;
 

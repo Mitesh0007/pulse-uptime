@@ -9,6 +9,13 @@ http.createServer((req, res) => {
     console.log(`Health check server listening on port ${process.env.PORT || 3003}`);
 });
 
+const SELF_URL = process.env.RENDER_EXTERNAL_URL;
+if (SELF_URL) {
+    setInterval(() => {
+        fetch(SELF_URL).catch(() => {});
+    }, 5 * 60 * 1000);
+}
+
 async function main() {
     let websites = await prismaClient.website.findMany({
         select: {
