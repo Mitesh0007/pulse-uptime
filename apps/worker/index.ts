@@ -14,7 +14,7 @@ const SELF_URL = process.env.RENDER_EXTERNAL_URL;
 if (SELF_URL) {
     setInterval(() => {
         fetch(SELF_URL).catch(() => {});
-    }, 10 * 60 * 1000);
+    }, 5 * 60 * 1000);
 }
 
 const REGION_ID = process.env.REGION_ID!;
