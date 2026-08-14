@@ -1,6 +1,14 @@
 import axios from "axios";
+import http from "http";
 import { xAckBulk, xReadGroup } from "redisstream/client";
 import { prismaClient } from "store/client";
+
+http.createServer((req, res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("worker alive");
+}).listen(process.env.PORT || 3002, () => {
+    console.log(`Health check server listening on port ${process.env.PORT || 3002}`);
+});
 
 const REGION_ID = process.env.REGION_ID!;
 const WORKER_ID = process.env.WORKER_ID!;
