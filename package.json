@@ -1,6 +1,7 @@
 {
   "name": "betteruptime",
   "private": true,
+  "trustedDependencies": ["@prisma/client", "prisma"],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
