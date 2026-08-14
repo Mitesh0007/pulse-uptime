@@ -3,6 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
+    "postinstall": "prisma generate",
     "seed": "bun run seed.ts"
   },
   "devDependencies": {
